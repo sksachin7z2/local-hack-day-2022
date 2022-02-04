@@ -11,6 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+.bg{
+  background-image: linear-gradient(rgb(0, 0, 36),rgb(3, 3, 66));
+  height:110vh;
+}
+.btnn{
+  border: none;
+    background-color: aqua;
+    border-radius: 0.3rem;
+    padding: 6px 16px;
+}
+.btnn:hover{
+  box-shadow: 0 0 12px 0 cyan;
+}
+.dp{
+  width:23em;
+  display: flex;
+  flex-wrap: wrap;
+}
 .header{
   display:flex;
   justify-content: space-between;
@@ -30,4 +48,12 @@ code {
 }
 .card{
   padding: 30px;
+}
+@media screen and (max-width:770px) {
+  .cardd{
+    background-color: transparent;
+    padding-top: 6rem;
+    max-width: 22rem;
+    margin: auto auto;
+  }
 }

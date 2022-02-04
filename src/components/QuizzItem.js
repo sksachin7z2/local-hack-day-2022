@@ -1,13 +1,9 @@
 import React,{useEffect,useState} from 'react'
-// import jquery from 'jquery';
-// import { useNavigate } from 'react-router-dom';
-
-// import { useEffect } from 'react';
 function QuizzItem(props) {
    
 const [visible, setVisible] = useState(false);
 const [getuserans, setGetuserans] = useState("");
-// const [count, setCount] = useState(0);
+
 
 
 useEffect(() => {
@@ -50,6 +46,7 @@ const checkanswer=()=>{
     }
         
 
+
     const handleonchange1=(e)=>{
 
       localStorage.removeItem("userans");
@@ -62,59 +59,11 @@ const checkanswer=()=>{
       document.getElementById(`${props.question}+3`).disabled=true;
       document.getElementById(`${props.question}+4`).disabled=true;
   
-    // if(checkanswer()==="correct")
-    // document.getElementById(1).style.backgroundColor="green"
+   
         setVisible(true);
     //  props.score(score);
     }
-    const handleonchange2=(e)=>{
-
-      localStorage.removeItem("userans");
-      localStorage.setItem("userans",e.target.value);
-      
-      setGetuserans(localStorage.getItem("userans"));
-      
-      checkanswer()
-      document.getElementById(`${props.question}+1`).disabled=true;
-      document.getElementById(`${props.question}+2`).disabled=true;
-      document.getElementById(`${props.question}+3`).disabled=true;
-      document.getElementById(`${props.question}+4`).disabled=true;
-      // props.score(score);
-    setVisible(true);
-    }
-    const handleonchange3=(e)=>{
-      localStorage.removeItem("userans");
-      localStorage.setItem("userans",e.target.value);
-      
-      setGetuserans(localStorage.getItem("userans"));
-      
-      
-      checkanswer()
-      
-      document.getElementById(`${props.question}+1`).disabled=true;
-      document.getElementById(`${props.question}+2`).disabled=true;
-    document.getElementById(`${props.question}+3`).disabled=true;
-    document.getElementById(`${props.question}+4`).disabled=true;
-    // props.score(score);
-    setVisible(true);
-    }
-    const handleonchange4=(e)=>{
-      localStorage.removeItem("userans");
-      localStorage.setItem("userans",e.target.value);
-      
-      setGetuserans(localStorage.getItem("userans"));
-      
-      
-      checkanswer()
-      
-      document.getElementById(`${props.question}+1`).disabled=true;
-      document.getElementById(`${props.question}+2`).disabled=true;
-      document.getElementById(`${props.question}+3`).disabled=true;
-      document.getElementById(`${props.question}+4`).disabled=true;
-      setVisible(true);
-      // props.score(score);
-
-    }
+   
     const handleonchangeb1=(e)=>{
       localStorage.removeItem("userans");
       localStorage.setItem("userans",e.target.value);
@@ -127,25 +76,11 @@ const checkanswer=()=>{
       
       document.getElementById(`${props.question}+10`).disabled=true;
       document.getElementById(`${props.question}+20`).disabled=true;
+    
       // props.score(score);
       setVisible(true);
     }
-    const handleonchangeb2=(e)=>{
-      localStorage.removeItem("userans");
-      localStorage.setItem("userans",e.target.value);
-      setGetuserans(localStorage.getItem("userans"));
-      
-      
-      checkanswer()
-      
-      document.getElementById(`${props.question}+10`).disabled=true;
-      document.getElementById(`${props.question}+20`).disabled=true;
-    // props.score(score);
-    setVisible(true);
-    }
     
-    
-    // let random=Math.floor(Math.random() * 4) + 0;
     
     return (
         <div>
@@ -163,21 +98,21 @@ const checkanswer=()=>{
 </div>
                            
                         <div className="form-check mb-2" id="2" >
-  <input className="form-check-input" type="radio" name={`${props.question}+1`} id={`${props.question}+2`} onClick={handleonchange2} value={props.answer[1]}  />
+  <input className="form-check-input" type="radio" name={`${props.question}+1`} id={`${props.question}+2`} onClick={handleonchange1} value={props.answer[1]}  />
   <label className="form-check-label" htmlFor={`${props.question}+2`}>
   {props.answer[1]}
   </label>
 </div>
              
                         <div className="form-check mb-2"id="3" >
-  <input className="form-check-input" type="radio" name={`${props.question}+1`} id={`${props.question}+3`}onClick={handleonchange3} value={props.answer[2]} />
+  <input className="form-check-input" type="radio" name={`${props.question}+1`} id={`${props.question}+3`}onClick={handleonchange1} value={props.answer[2]} />
   <label className="form-check-label" htmlFor={`${props.question}+3`}>
   {props.answer[2]}
   </label>
 </div>
                            
                         <div className="form-check mb-2" id="4"  >
-  <input className="form-check-input" type="radio" name={`${props.question}+1`} onClick={handleonchange4} id={`${props.question}+4`} value={props.answer[3]}/>
+  <input className="form-check-input" type="radio" name={`${props.question}+1`} onClick={handleonchange1} id={`${props.question}+4`} value={props.answer[3]}/>
   <label className="form-check-label" htmlFor={`${props.question}+4`}>
   {props.answer[3]}
   </label>
@@ -190,7 +125,7 @@ const checkanswer=()=>{
 </div>
                            
                         <div className="form-check mb-2" id="b2" >
-  <input className="form-check-input" type="radio" name={`${props.question}+11`}onClick={handleonchangeb2} id={`${props.question}+20`}  value={props.answer[1]}/>
+  <input className="form-check-input" type="radio" name={`${props.question}+11`}onClick={handleonchangeb1} id={`${props.question}+20`}  value={props.answer[1]}/>
   <label className="form-check-label" htmlFor={`${props.question}+20`}>
   {props.answer[1]}
   </label>
@@ -200,12 +135,21 @@ const checkanswer=()=>{
                     </div>
                   
                    {visible && <div style={{backgroundColor:"greenyellow"}}>
+                   <div style={{padding:"30px"}}>
                      <h4>Correct Answer</h4>
+                     
                    {props.correct_answer}
-                      <div>
+                   </div>
+                    {props.correct_answer!==getuserans?<div id={`${props.question}`}>
+                        <div style={{backgroundColor:"#a30215",padding:"30px"}}>
+                          <h4>Your Answer</h4>
+                        {getuserans}
+                        </div>
+                      </div>:
+                      <div id={`${props.question}`} style={{padding:"30px"}}>
                         <h4>Your Answer</h4>
                         {getuserans}
-                      </div>
+                      </div>}
                    </div>}
                 </section>
             </div>

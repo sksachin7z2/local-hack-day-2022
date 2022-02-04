@@ -109,7 +109,7 @@ return arr;
                 <div className="container">
             {results.map((element) => {
                     let answer=shuffleArray([...element.incorrect_answers,element.correct_answer])
-                    console.log(answer);
+                    // console.log(answer);
 
               // getData(element.question);
               return (
