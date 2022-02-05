@@ -11,10 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-.bg{
+body{
   background-image: linear-gradient(rgb(0, 0, 36),rgb(3, 3, 66));
-  height:110vh;
 }
+/* .bg{
+ 
+  
+  /* overflow-y: scroll; */
+
 .btnn{
   border: none;
     background-color: aqua;
@@ -33,8 +37,47 @@ code {
   display:flex;
   justify-content: space-between;
   padding: 1rem 4rem;
+  background-color: #000000c2;
 }
-
+.ts:hover{
+  text-shadow: 0 0 4px white;
+  cursor:pointer;
+}
+.srr{
+  font-size: larger;
+  font-weight: bold;
+}
+.nav{
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: cursive;
+  margin-bottom: 8px;
+}
+.pp{
+  background-color: antiquewhite;
+}
+.ll{
+  font-size: larger;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    font-family: cursive;
+}
+.scoo{
+  font-size: larger;
+    font-weight: bolder;
+    padding-bottom: 1em;
+}
+.mainlogo{
+  text-align: center;
+  font-size: 3rem;
+ 
+  color: #326acd;
+  font-family: cursive;
+}
+.load{
+  background-image: url("./components/bgg.jpg");
+  height:100vh;
+}
 .gameover{
   position: fixed;
   top:0;
@@ -49,10 +92,29 @@ code {
 .card{
   padding: 30px;
 }
+.darkmode{
+  color:white
+}
+.quizbg{
+  background-color: #000000d9
+}
+.borderr{
+  border:2px solid rgb(1, 1, 20)
+}
+.quizselect{
+  max-width: 600px;
+  /* border: 2px solid black; */
+  padding: 30px;
+  margin: auto;
+  position: relative;
+  top: 70px;
+  border-radius: 8px;
+  box-shadow: 0 0 9px 0 #086940;
+}
 @media screen and (max-width:770px) {
   .cardd{
     background-color: transparent;
-    padding-top: 6rem;
+    padding-top: 1rem;
     max-width: 22rem;
     margin: auto auto;
   }

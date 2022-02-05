@@ -2,9 +2,10 @@ import React,{useState,useEffect} from 'react'
 import QuizzItem from './QuizzItem';
 import jquery from 'jquery';
 import { useNavigate } from 'react-router-dom';
-
+import bgg from './bgg.jpg'
 // import { useNavigate } from 'react-router-dom';
 function Quizzdashboard() {
+  const [visible, setVisible] = useState(false);
   let navigate=useNavigate()
   // let string=[];
 const [gameover, setGameover] = useState(false);
@@ -51,6 +52,7 @@ return arr;
     const [results, setResults] = useState([])
     const [url1, seturl] = useState("")
     const retrievequizz=async()=>{
+      setVisible(true)
         
     let url = `https://opentdb.com/api.php?amount=${retrive().amount}&category=${retrive().category}&difficulty=${retrive().difficulty}&type=${retrive().type}`;
     seturl(url);
@@ -62,7 +64,7 @@ return arr;
     setResults(parsedData.results);
     // setTotalResults(parsedData.totalResults);
     // setLoading(false);
-    
+    setVisible(false)
     // props.setProgress(100);
     }
     useEffect(() => {
@@ -92,18 +94,21 @@ return arr;
       <>
       {gameover &&<div className='gameover'>
         <div className="card">
+          <div >
           <h1>Your Score:</h1>
-          <div>{localStorage.getItem("score")}</div>
+          <div className='scoo'>{localStorage.getItem("score")}</div></div>
           <div>
             <button onClick={()=>{window.location.reload()}} className='btn btn-success'>Play Again</button>&emsp;
             <button onClick={()=>{navigate("/quizz")}} className='btn btn-success'>Back to Quizz Menu</button>
           </div>
         </div>
       </div>}
-        <div>
-            <div className='container header'>
-                <h1>Quizzer</h1>
-                <div><h3>Score</h3>  <div id="getscore"></div></div>
+      
+       {visible && <div className='load'></div>}
+       <div style={{backgroundImage:`url(${bgg})`,marginBottom:"2rem"}}>
+            <div className=' header'>
+                <h1 className='darkmode d-flex align-items-center'>Quizzer</h1>
+                <div className="borderr p-3"><h3 className='darkmode'>Score :</h3>  <div id="getscore" className='darkmode srr'></div></div>
             </div>
 
                 <div className="container">
@@ -148,6 +153,9 @@ return arr;
 {/* <div><button className='btn btn-success'>Submit</button></div> */}
 
           </div>
+        </div>
+        <div className='text-center darkmode p-3' style={{height:"10vh",backgroundColor:"black",marginTop:"-32px"}}>
+              Quizzer &copy; all right reserved
         </div>
         </>
     )

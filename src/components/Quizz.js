@@ -11,16 +11,17 @@ function Quizz(props) {
     return (
         <div  style={{height:"100vh",width:"100vw",backgroundImage:`url(${quizzwal})`}}>
         <div  className="container">
-            <h1 className='text-center'>Create a Quizz</h1>
+			<div className='quizselect'>
+            <h1 style={{    color: "#092652"}} className='text-center mb-4'>Create a Quizz</h1>
            
 
-		<label htmlFor="amount">Number of Questions:</label>
-		<input type="number" name="amount" id="amount" className="form-control" min="1" max="50" value={quizz.amount} onChange={handleOnchange}/>
+		<label className='ll' htmlFor="amount">Number of Questions:(max: 50)</label>
+		<input type="number" name="amount" id="amount" className="form-control pp" min="1" max="50" value={quizz.amount} onChange={handleOnchange}/>
 
 		<br/>
 
-		<label htmlFor="category">Select Category: </label>
-		<select name="category" className="form-control" id="category" 
+		<label className='ll' htmlFor="category">Select Category: </label>
+		<select name="category" className="form-control pp" id="category" 
 		// onChange={(e)=>{
 		// 		const selectedvalue=e.target.value;
 		// 		setCategory(selectedvalue);}}
@@ -31,8 +32,8 @@ function Quizz(props) {
 
 		<br/>
 
-		<label htmlFor="difficulty">Select Difficulty: </label>
-		<select name="difficulty" className="form-control" onChange={handleOnchange}>
+		<label className='ll' htmlFor="difficulty">Select Difficulty: </label>
+		<select name="difficulty" className="form-control pp" onChange={handleOnchange}>
 			<option value="any">Any Difficulty</option>
 			<option value="easy">Easy</option>
 			<option value="medium">Medium</option>
@@ -41,8 +42,8 @@ function Quizz(props) {
 
 		<br/>
 
-		<label htmlFor="type">Select Type: </label>
-		<select name="type" className="form-control" onChange={handleOnchange}>
+		<label className='ll' htmlFor="type">Select Type: </label>
+		<select name="type" className="form-control pp" onChange={handleOnchange}>
 			
 			<option value="multiple">Multiple Choice</option>
 			<option value="boolean">True / False</option>
@@ -54,7 +55,7 @@ function Quizz(props) {
 	
 
         </div>
-       
+		</div>
         </div>
     )
 }
