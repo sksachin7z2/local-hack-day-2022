@@ -9,7 +9,7 @@ function Quizz(props) {
         setquizz({...quizz, [e.target.name]: e.target.value})
     }
     return (
-        <div  style={{height:"100vh",width:"100vw",backgroundImage:`url(${quizzwal})`}}>
+        <div  style={{height:"110vh",width:"100vw",backgroundImage:`url(${quizzwal})`}}>
         <div  className="container">
 			<div className='quizselect'>
             <h1 style={{    color: "#092652"}} className='text-center mb-4'>Create a Quizz</h1>
