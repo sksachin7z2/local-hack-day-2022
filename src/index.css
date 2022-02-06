@@ -4,6 +4,16 @@ body{
   background-image: linear-gradient(rgb(0, 0, 36),rgb(3, 3, 66));
   overflow-x: hidden;
 }
+.errlabel{
+  color: aqua;
+  font-weight: bold;
+  font-size: larger;
+  padding-top: 12px;
+}
+.imgerr{
+  text-align: center;
+    padding-top: 11em;
+}
 
 .btnn{
   border: none;

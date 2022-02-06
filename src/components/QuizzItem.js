@@ -10,7 +10,6 @@ useEffect(() => {
  localStorage.setItem("score",0);
  let score=parseInt(localStorage.getItem("score"));
  props.score(score);
-
  localStorage.setItem("count",0);
  let count=parseInt(localStorage.getItem("count"));
  props.count(count)
@@ -23,7 +22,7 @@ const checkanswer=()=>{
   let count=parseInt(localStorage.getItem("count"));
     count=count+1;
     count=count.toString()
-   
+  
       localStorage.setItem("count",count)
       props.count(count);
 

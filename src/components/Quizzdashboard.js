@@ -1,19 +1,21 @@
 import React,{useState,useEffect} from 'react'
 import QuizzItem from './QuizzItem';
 import jquery from 'jquery';
+import error from './error-404.png'
 import { useNavigate } from 'react-router-dom';
 import bgg from './bgg.jpg'
-// import { useNavigate } from 'react-router-dom';
+
 function Quizzdashboard() {
   const [visible, setVisible] = useState(false);
   let navigate=useNavigate()
-  // let string=[];
+  
+  const [nodata, setNodata] = useState(false);
 const [gameover, setGameover] = useState(false);
   const score=(score)=>{
       document.getElementById("getscore").innerText=score;
      
   }
-  // console.log(gameover);
+  
   const count=(count)=>{
       if(count===retrive().amount){
       
@@ -22,26 +24,21 @@ const [gameover, setGameover] = useState(false);
       
   }
   const getData=(questions)=>{
-    // let question =document.getElementById("question");
+   
 let str = questions;
     
 let html = jquery.parseHTML(str);
-    // console.log(html);
-// question.innerHTML= html[0].data ;
+   
 return html[0].data;
 }
   const getDataa=(answer)=>{
-    // let question =document.getElementById("question");
+    
     let arr=[],i;
     for(i=0;i<4;i++)
        {
            arr[i]=jquery.parseHTML(answer[i])[0].data;
        }
-// let str = answer;
-    
-// let html = jquery.parseHTML(str);
-    // console.log(html);
-// question.innerHTML= html[0].data ;
+
 return arr;
 }
   
@@ -56,16 +53,19 @@ return arr;
         
     let url = `https://opentdb.com/api.php?amount=${retrive().amount}&category=${retrive().category}&difficulty=${retrive().difficulty}&type=${retrive().type}`;
     seturl(url);
-    // setLoading(true);
+    
     let data = await fetch(url);
-    // props.setProgress(50);
+    
     let parsedData = await data.json();
-    // props.setProgress(70);
+   
+    if(parsedData.results.toString()===''){
+      setNodata(true);
+      document.getElementById('head').style.display='none'
+    }
     setResults(parsedData.results);
-    // setTotalResults(parsedData.totalResults);
-    // setLoading(false);
+    
     setVisible(false)
-    // props.setProgress(100);
+    
     }
     useEffect(() => {
       retrievequizz();
@@ -77,12 +77,12 @@ return arr;
 
     function shuffleArray(array) {
       let curId = array.length;
-      // There remain elements to shuffle
+     
       while (0 !== curId) {
-        // Pick a remaining element
+       
         let randId = Math.floor(Math.random() * curId);
         curId -= 1;
-        // Swap it with the current element.
+       
         let tmp = array[curId];
         array[curId] = array[randId];
         array[randId] = tmp;
@@ -105,8 +105,15 @@ return arr;
       </div>}
       
        {visible && <div className='load'></div>}
+       {nodata && <div style={{height:"100vh"}} className='nodata'><div className='imgerr' >
+         <img src={error} alt="" />
+         <div className='errlabel'>
+           Currently Not Available!! <br/>
+           Try for different category,type or level
+         </div>
+         </div></div>}
        <div style={{backgroundImage:`url(${bgg})`,marginBottom:"2rem"}}>
-            <div className=' header'>
+            <div id='head' className=' header'>
                 <h1 className='darkmode d-flex align-items-center'>Quizzer</h1>
                 <div className="borderr p-3"><h3 className='darkmode'>Score :</h3>  <div id="getscore" className='darkmode srr'></div></div>
             </div>
@@ -114,14 +121,12 @@ return arr;
                 <div className="container">
             {results.map((element) => {
                     let answer=shuffleArray([...element.incorrect_answers,element.correct_answer])
-                    // console.log(answer);
-
-              // getData(element.question);
+                  
               return (
                 <div className="container"  key={url1+element.question} >
                   
                   {localStorage.getItem("typest")==="multiple"?<QuizzItem
-                  // key={element.url}
+                  
                   score={score}
                  count={count}
                     question={getData(element.question)}
@@ -132,7 +137,7 @@ return arr;
                     correct_answer={getData(element.correct_answer)}
                   />:
                   <QuizzItem
-                  // key={element.url}
+                
                   score={score}
                   count={count}
                   amount={retrive().amount}
@@ -150,7 +155,7 @@ return arr;
               );
 
             })}
-{/* <div><button className='btn btn-success'>Submit</button></div> */}
+
 
           </div>
         </div>
