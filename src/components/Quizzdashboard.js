@@ -109,7 +109,8 @@ return arr;
          <img src={error} alt="" />
          <div className='errlabel'>
            Currently Not Available!! <br/>
-           Try for different category,type or level
+           Try for different category,type or level<br/><br/>
+           <button onClick={()=>{navigate('/quizz')}} className='btn btn-primary'>Quiz Menu</button>
          </div>
          </div></div>}
        <div style={{backgroundImage:`url(${bgg})`,marginBottom:"2rem"}}>
