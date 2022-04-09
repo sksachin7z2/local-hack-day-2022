@@ -13,6 +13,7 @@ function Index() {
           <div className="mainlogo d-inline">Quizzer</div>&emsp;
           <img src={quizzer} alt="" /></div>
           <hr style={{color:"cyan",height:"5px"}}/>
+<div className="container">
                <div style={{backgroundColor:"transparent"}} className="card cardd  " >
   <div className="row g-0">
     <div className="col-md-4">
@@ -29,7 +30,7 @@ function Index() {
       </div>
     </div>
   </div>
-</div>
+</div></div>
 <section id="about">
 <h2 style={{color:"Highlight"}} className="text-center">About</h2>
 <hr style={{color:"cyan",height:"5px"}}/>

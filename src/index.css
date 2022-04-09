@@ -87,6 +87,8 @@ body{
 }
 .card{
   padding: 30px;
+  /* max-width: 80rem; used container but without you can use this instead*/ 
+  margin:auto;
 }
 .darkmode{
   color:white
