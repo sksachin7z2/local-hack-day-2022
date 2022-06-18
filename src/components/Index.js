@@ -51,6 +51,9 @@ function Index() {
     </div>
   </div>
 </div>
+<footer className="footr">
+<h5>-----  Build by - Sachin Sharma  -----</h5> 
+</footer>
         </section>
         </div>
        

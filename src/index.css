@@ -109,6 +109,13 @@ body{
   border-radius: 8px;
   box-shadow: 0 0 20px 0 aqua;
 }
+.footr{
+  height: 3rem;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
 @media screen and (max-width:770px) {
   .cardd{
     background-color: transparent;
